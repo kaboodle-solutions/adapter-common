@@ -354,17 +354,7 @@ abstract class AbstractCachePool implements PhpCachePool, LoggerAwareInterface, 
         }
 
         // Remove all items with the tag
-        $success = $this->deleteItems($itemIds);
-
-        if ($success) {
-            // Remove the tag list
-            foreach ($tags as $tag) {
-                $this->removeList($this->getTagKey($tag));
-                $l = $this->getList($this->getTagKey($tag));
-            }
-        }
-
-        return $success;
+        return $this->deleteItems($itemIds);
     }
 
     public function invalidateTag($tag)

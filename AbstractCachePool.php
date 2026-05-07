@@ -414,7 +414,7 @@ abstract class AbstractCachePool implements PhpCachePool, LoggerAwareInterface, 
     /**
      * {@inheritdoc}
      */
-    public function get($key, $default = null)
+    public function get(string $key, $default = null): mixed
     {
         $item = $this->getItem($key);
         if (!$item->isHit()) {
